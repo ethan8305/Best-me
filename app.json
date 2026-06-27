@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Best me",
+    "slug": "best-me",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "bestme",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B1020"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bestme.app",
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "Best me reads your calendar to plan your day around existing events and writes your planned blocks back so your whole day lives in one place."
+      }
+    },
+    "android": {
+      "package": "com.bestme.app",
+      "permissions": [
+        "READ_CALENDAR",
+        "WRITE_CALENDAR"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "Best me needs calendar access to plan around your existing events and add your planned blocks."
+        }
+      ],
+      "expo-notifications"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
