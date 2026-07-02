@@ -49,15 +49,20 @@ see the balanced-day streak rule evaluate live.
 
 ```bash
 cp .env.example .env            # add EXPO_PUBLIC_SUPABASE_URL / ANON_KEY
-supabase db push                # apply supabase/migrations/0001_init.sql (RLS)
+supabase db push                # apply migrations (RLS + hardening + ai_usage)
 supabase secrets set ANTHROPIC_API_KEY=sk-ant-...
+supabase secrets set ALLOWED_ORIGINS=https://your-web-app.example  # web/PWA only
 supabase functions deploy claude-summary claude-reflect
 ```
 
 The Anthropic key lives only as an Edge Function secret — the app never holds
-it. Default model is `claude-opus-4-8` (adaptive thinking on the reflection
-function). When Supabase isn't configured, the app falls back to an offline
-narrative so Today always has a brief.
+it. The functions require a signed-in user (401 otherwise), validate and
+size-cap input, and enforce a per-user daily AI quota. Sessions persist in the
+OS keychain (expo-secure-store), not plaintext storage. See `SECURITY.md` for
+the threat model and the dashboard checklist. Default model is
+`claude-opus-4-8` (adaptive thinking on the reflection function). When Supabase
+isn't configured, the app falls back to an offline narrative so Today always
+has a brief.
 
 ## Roadmap (Phase 2)
 
