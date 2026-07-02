@@ -10,6 +10,20 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      # NativeWind 4 only supports Tailwind CSS v3 (its metro integration
+      # throws on v4). Revisit when moving to a NativeWind release with v4
+      # support.
+      - dependency-name: tailwindcss
+        update-types: ["version-update:semver-major"]
+      # Expo SDK packages must be upgraded together via the SDK, not
+      # individually by major version.
+      - dependency-name: expo*
+        update-types: ["version-update:semver-major"]
+      - dependency-name: react-native
+        update-types: ["version-update:semver-major"]
+      - dependency-name: react
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
