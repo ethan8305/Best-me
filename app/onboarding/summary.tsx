@@ -71,7 +71,13 @@ export default function Summary() {
             <Text className="text-center text-base font-bold text-ink">Continue</Text>
           </Pressable>
 
-          <Pressable onPress={exploreWithSeed} className="mt-3 py-2">
+          <Pressable
+            onPress={() => {
+              exploreWithSeed();
+              router.replace("/(tabs)");
+            }}
+            className="mt-3 py-2"
+          >
             <Text className="text-center text-muted text-sm">
               Skip and explore with sample data
             </Text>

@@ -1,0 +1,22 @@
+{
+  "setupTasks": [
+    {
+      "name": "Install dependencies",
+      "command": "npm install"
+    }
+  ],
+  "tasks": {
+    "web": {
+      "name": "Best me (web)",
+      "command": "npx expo start --web --port 8081",
+      "runAtStart": true,
+      "preview": {
+        "port": 8081
+      }
+    },
+    "test": {
+      "name": "Unit tests",
+      "command": "npm test"
+    }
+  }
+}
