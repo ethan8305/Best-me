@@ -17,12 +17,18 @@ updates:
       - dependency-name: tailwindcss
         update-types: ["version-update:semver-major"]
       # Expo SDK packages must be upgraded together via the SDK, not
-      # individually by major version.
+      # individually by major version. react-native* covers gesture-handler,
+      # reanimated, screens, etc., whose native code must match the SDK
+      # (PR #6 bumped gesture-handler to v3, which SDK 57 pins at ~2.32).
       - dependency-name: expo*
         update-types: ["version-update:semver-major"]
-      - dependency-name: react-native
+      - dependency-name: react-native*
         update-types: ["version-update:semver-major"]
       - dependency-name: react
+        update-types: ["version-update:semver-major"]
+      # TypeScript 6 isn't supported yet by ts-jest or Expo's tsconfig
+      # (PR #7 broke every test suite). Revisit when the toolchain catches up.
+      - dependency-name: typescript
         update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions

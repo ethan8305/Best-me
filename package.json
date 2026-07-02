@@ -30,7 +30,7 @@
     "react": "19.2.7",
     "react-dom": "^19.2.7",
     "react-native": "0.86.0",
-    "react-native-gesture-handler": "~3.0.2",
+    "react-native-gesture-handler": "~2.32.0",
     "react-native-reanimated": "4.5.0",
     "react-native-safe-area-context": "~5.8.0",
     "react-native-screens": "4.25.2",
@@ -45,7 +45,7 @@
     "babel-preset-expo": "^57.0.1",
     "jest": "^30.4.2",
     "ts-jest": "^29.2.0",
-    "typescript": "~6.0.3"
+    "typescript": "~5.9.0"
   },
   "jest": {
     "preset": "ts-jest",
